@@ -1,0 +1,5 @@
+# Don't commit datasets or associated handlers yet
+data/
+zshot/datasets/
+
+.DS_Store
