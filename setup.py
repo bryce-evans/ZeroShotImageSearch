@@ -10,11 +10,11 @@ setup(
         ],
     },
     install_requires=[
-        'faiss-cpu==1.7.4',
+        'faiss-cpu',
         'numpy',
         'pillow',
-        'torch==2.2.2',
-        'torchvision==0.17.2',
+        'torch==2.1.2',
+        'torchvision==0.16.1',
         'transformers', 
     ],
     extras_require={
@@ -28,5 +28,5 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.9',
 )
