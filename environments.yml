@@ -5,4 +5,3 @@ channels:
 dependencies:
   - python=3.9
   - pytorch=2.2.2
-  - cudatoolkit=11.1  # Specify the CUDA version if needed
