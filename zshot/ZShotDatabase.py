@@ -38,9 +38,12 @@ class ZShotDatabase:
     
 
     def nearest(self, emb, k=4) -> List[Tuple[str, torch.Tensor]]:
-        """Returns the `k` nearest paths that match the input embedding `emb`."""
+        """Takes an embedding and finds up to k matches
+        returns both indices and image_paths
+        """
         _, I = self.index.search(emb, k) 
-        return [(self.paths[i], i) for i in I[0]]
+        matching_indices = I[0]
+        return matching_indices, [self.paths[i] for i in matching_indices]
 
 
     # def get_all_vectors(self) -> torch.Tensor:

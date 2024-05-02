@@ -33,14 +33,27 @@ class CatalogManager:
     def add_directory(self, dir: str):
         """
         Recursively adds all images in a directory to the database.
-        Only supports jpg for now.
+        Only supports jpg, png for now.
         """
+
+        # TODO: make this more efficient than multiple sweeps.
         jpg_files = glob.glob(f'{dir}/**/*.jpg', recursive=True)
-        embeddings = self.active_engine.process_images_by_paths(jpg_files)
-        self.active_db.add(jpg_files, embeddings)
-        self.logger.info(f"Successfully added {len(jpg_files)} additional images.\n"
+        png_files = glob.glob(f'{dir}/**/*.png', recursive=True)
+        image_files = jpg_files + png_files
+        if len(image_files) == 0:
+            self.logger.warning(f"No images found in {dir}")
+            return
+        embeddings = self.active_engine.process_images_by_paths(image_files)
+        self.active_db.add(image_files, embeddings)
+        self.logger.info(f"Successfully added {len(image_files)} additional images.\n"
                          f"Catalog Total: {self.active_db.count()}")
     
+
+    def search(self, query:str, count=1) -> List[Image.Image]:
+        query_features = self.active_engine.process_query(query)
+        _, img_paths = self.active_db.nearest(query_features, k=count)
+        return img_paths
+
 
     def new_catalog(self, path: str):
         """Create a new catalog file.
@@ -63,6 +76,7 @@ class CatalogManager:
             catalog = pickle.load(f)
             self.active_engine = ZShotEngine(catalog.engine_name)
             self.active_db = ZShotDatabase(catalog.dimension)
+            self.active_db.paths = catalog.image_paths
             self.active_db.index = catalog.index
             self.active_catalog_path = path
 
