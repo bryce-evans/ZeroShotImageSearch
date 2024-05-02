@@ -1,5 +1,5 @@
 """
-Due to time, these tests are largely cut short.
+Due to time, these tests are largely cut short. There are likely some bugs yet.
 Included are basic tests that show usage and reasonable proof that things work, but lots more 
 can be done here in order to reduce the need for filesystem and network calls.
 """

@@ -33,8 +33,9 @@ def test_db_works():
     # Check that the optimized DB result returns the same 
     # result as niave linear probing.
     naive_best = utils.sorted_similarity(query_features, image_features)[0]
-    _, db_best = db.nearest(query_features, k=1)[0]
-    assert db_best == naive_best
+    indices, paths = db.nearest(query_features, k=1)
+    assert indices[0] == query_closest_match_idx
+    assert paths[0] == image_paths[query_closest_match_idx]
 
 
 def test_bad_dimensions_fail():
