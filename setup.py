@@ -5,11 +5,11 @@ setup(
     version='0.1',
     packages=find_packages(),
     install_requires=[
-        'faiss-cpu',
+        'faiss-cpu==1.7.4',
         'numpy',
         'pillow',
-        'torch',
-        'torchvision',
+        'torch==2.1.2',
+        'torchvision==0.16.1',
         'transformers', 
     ],
     extras_require={
