@@ -26,7 +26,6 @@ class ZShotEngine:
         self.processor = CLIPProcessor.from_pretrained(model)
         self.batch_size = batch_size
         self.logger = logger
-        
 
 
     @torch.no_grad()
@@ -50,7 +49,7 @@ class ZShotEngine:
             images = []
             for p in paths[batch_idx:batch_idx + self.batch_size]:
 
-                # Convert remote links to loadable data
+                # Convert remote links to loadable data.
                 if p.startswith("https://"):
                     p = requests.get(p, stream=True).raw
 

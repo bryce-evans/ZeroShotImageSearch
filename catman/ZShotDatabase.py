@@ -44,15 +44,3 @@ class ZShotDatabase:
         _, I = self.index.search(emb, k) 
         matching_indices = I[0]
         return matching_indices, [self.paths[i] for i in matching_indices]
-
-
-    # def get_all_vectors(self) -> torch.Tensor:
-    #     if self.count() == 0:
-    #         return torch.zeros(0, self.dimension)
-        
-    #     # Method used only works for this index type.
-    #     assert isinstance(self.index, faiss.IndexFlatIP)
-
-    #     retrieved_vectors = faiss.vector_to_array(self.index.xb)
-    #     retrieved_vectors = retrieved_vectors.reshape(self.count, self.dimension)
-    #     return torch.from_numpy(retrieved_vectors)
