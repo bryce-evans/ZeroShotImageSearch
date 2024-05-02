@@ -1,0 +1,7 @@
+faiss-cpu==1.7.4
+numpy==1.26.4
+pillow==10.3.0
+pytorch==2.2.2
+transformers==4.39.3
+pytest==8.2.0
+pytest-mock==3.14.0
