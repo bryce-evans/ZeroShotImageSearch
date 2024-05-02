@@ -1,9 +1,10 @@
 name: ci_env
 channels:
-  - pytorch
   - defaults
+  - conda-forge
+  - pytorch
 dependencies:
-  - python=3.11.9
+  - python=3.11
   - faiss-cpu==1.8.0 
   - numpy==1.26.4
   - pillow==10.3.0
