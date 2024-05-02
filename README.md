@@ -21,7 +21,6 @@ pip install 'transformers[torch]' \
             pip install --upgrade ipywidgets
 
 
-
 conda install -c conda-forge \
     transformers pytorch faiss-cpu torchvision
 
@@ -98,6 +97,9 @@ a command line entry point with any necessary argument parsing, and also an inte
 ### Build
 
 rm -rf build/ dist/ *.egg-info
+
+conda env create -f environment.yml
+
 
 python3 setup.py sdist bdist_wheel
 

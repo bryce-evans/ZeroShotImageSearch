@@ -13,8 +13,8 @@ setup(
         'faiss-cpu==1.7.4',
         'numpy',
         'pillow',
-        'torch==2.1.2',
-        'torchvision==0.16.1',
+        'torch==2.2.2',
+        'torchvision==0.17.2',
         'transformers', 
     ],
     extras_require={
