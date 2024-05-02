@@ -9,8 +9,7 @@ setup(
         'numpy',
         'pillow',
         'pytorch',
-        'transformers',
-        
+        'transformers', 
     ],
     extras_require={
         'dev': [
