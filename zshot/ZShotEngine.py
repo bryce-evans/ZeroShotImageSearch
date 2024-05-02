@@ -1,4 +1,5 @@
 import logging
+from typing import List, Union
 
 from PIL import Image
 import requests
@@ -11,23 +12,33 @@ class ZShotEngine:
     """CLIP wrapper that takes images and text inputs and maps to a common embedding space.
 
     Arguments:
-    model: CLIP backbone model name. Additional model options can be found at https://huggingface.co/models?other=clip
-    batch_size: number of images to process at once. 
-    logger: logger instance to be used for logging.
+        model: CLIP backbone model name. Additional model options can be found at https://huggingface.co/models?other=clip
+        batch_size: number of images to process at once. 
+        logger: logger instance to be used for logging.
     """
     def __init__(self, 
                  model="openai/clip-vit-base-patch32",
                  batch_size=32,
                  logger=logging.getLogger(__name__)):
         
+        self.model_name = model
         self.model = CLIPModel.from_pretrained(model)
         self.processor = CLIPProcessor.from_pretrained(model)
         self.batch_size = batch_size
         self.logger = logger
         
 
+
     @torch.no_grad()
-    def process_images(self, paths) -> torch.Tensor:
+    def process_image_batch(self, images: Union[List[Image.Image], torch.Tensor]) -> torch.Tensor:
+        """A helper for process_images that takes a single batch of image data"""
+        inputs = self.processor(images=images, return_tensors="pt")
+        image_features = self.model.get_image_features(**inputs)
+        image_features = F.normalize(image_features)
+        return image_features
+        
+
+    def process_images_by_paths(self, paths: List[str]) -> torch.Tensor:
         """
         Process a set of image paths and return a single tensor of embedding results. 
         Paths can be remote URLs starting with https://
@@ -46,9 +57,7 @@ class ZShotEngine:
                 img = Image.open(p)
                 images.append(img)
 
-            inputs = self.processor(images=images, return_tensors="pt")
-            image_features = self.model.get_image_features(**inputs)
-            image_features = F.normalize(image_features)
+            image_features = self.process_image_batch(images)
             results.append(image_features)
 
             for img in images:

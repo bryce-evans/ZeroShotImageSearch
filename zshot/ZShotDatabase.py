@@ -41,3 +41,15 @@ class ZShotDatabase:
         """Returns the `k` nearest paths that match the input embedding `emb`."""
         _, I = self.index.search(emb, k) 
         return [(self.paths[i], i) for i in I[0]]
+
+
+    # def get_all_vectors(self) -> torch.Tensor:
+    #     if self.count() == 0:
+    #         return torch.zeros(0, self.dimension)
+        
+    #     # Method used only works for this index type.
+    #     assert isinstance(self.index, faiss.IndexFlatIP)
+
+    #     retrieved_vectors = faiss.vector_to_array(self.index.xb)
+    #     retrieved_vectors = retrieved_vectors.reshape(self.count, self.dimension)
+    #     return torch.from_numpy(retrieved_vectors)
