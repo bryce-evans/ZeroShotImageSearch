@@ -8,7 +8,8 @@ setup(
         'faiss-cpu',
         'numpy',
         'pillow',
-        'pytorch',
+        'torch',
+        'torchvision',
         'transformers', 
     ],
     extras_require={
