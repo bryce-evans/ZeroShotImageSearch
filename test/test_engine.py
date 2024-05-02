@@ -30,7 +30,7 @@ def test_basic_query():
 def test_various_input_sizes_work():
     engine = ZShotEngine()
 
-    # Target input size.
+    # Exact expected input size works.
     input = torch.ones(MODEL_INPUT_SHAPE)
     result = engine.process_image_batch(input)
     assert result.shape == (1, MODEL_OUTPUT_DIMENSION)
@@ -45,7 +45,7 @@ def test_various_input_sizes_work():
     result = engine.process_image_batch(input)
     assert result.shape == (1, MODEL_OUTPUT_DIMENSION)
 
-    # Different aspect ratios work.
+    # Different aspect ratio works.
     input = torch.ones(3, 100, 1000)
     result = engine.process_image_batch(input)
     assert result.shape == (1, MODEL_OUTPUT_DIMENSION)
