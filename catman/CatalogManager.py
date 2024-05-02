@@ -7,7 +7,7 @@ from typing import List
 from PIL import Image
 from typing import Optional
 
-from zshot import Catalog, ZShotEngine, ZShotDatabase
+from catman import Catalog, ZShotEngine, ZShotDatabase
 
 
 class CatalogManager:

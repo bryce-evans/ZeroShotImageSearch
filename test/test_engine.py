@@ -2,7 +2,7 @@ import torch
 
 from torchvision.transforms import ToPILImage
 
-from zshot import ZShotEngine, utils
+from catman import ZShotEngine, utils
 
 
 MODEL_INPUT_SHAPE = torch.Size((3, 224, 224))

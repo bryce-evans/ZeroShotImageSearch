@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'catman=zshot.cli:main',
+            'catman=catman.cli:main',
         ],
     },
     install_requires=[

@@ -4,7 +4,7 @@ import logging
 import sys 
 from PIL import Image
 
-from zshot import CatalogManager
+from catman import CatalogManager
 
 
 def setup_logging(log_level_str):

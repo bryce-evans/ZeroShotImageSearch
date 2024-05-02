@@ -2,7 +2,7 @@ import pytest
 import torch
 from torch.nn import functional as F
 
-from zshot import ZShotDatabase, utils
+from catman import ZShotDatabase, utils
 
 EMBEDDING_DIMENSION = 512
 

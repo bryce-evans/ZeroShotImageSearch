@@ -1,8 +1,9 @@
-# Don't commit datasets or associated handlers yet
+build/
+dist/
 data/
-zshot/datasets/
 
 .DS_Store
 
 __pycache__/
 .pytest_cache
+*.egg-info

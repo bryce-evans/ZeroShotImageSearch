@@ -1,7 +1,7 @@
 import torch
 from torch.nn import functional as F
 
-from zshot import utils
+from catman import utils
 
 
 def test_sorted_similarity_exact_match():

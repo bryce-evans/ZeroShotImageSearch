@@ -7,7 +7,7 @@ can be done here in order to reduce the need for filesystem and network calls.
 import pytest
 from PIL import Image
 import numpy as np
-from zshot import CatalogManager
+from catman import CatalogManager
 
 
 # TODO: move this to git lfs or programmatically create an image to remove network from testing.
