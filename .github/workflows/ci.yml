@@ -30,14 +30,14 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           environment-file: environments.yml
-          activate-environment: ci_env
+          activate-environment: ci-crossplatform-env
           python-version: 3.11
           miniconda-version: "latest"
           auto-activate-base: false
 
       - name: Install dependencies
         shell: bash -l {0}
-        run: conda env update --file environments.yml --name ci_env
+        run: conda env update --file environments.yml --name ci-crossplatform-env
 
       - name: Run Tests
         shell: bash -l {0}
