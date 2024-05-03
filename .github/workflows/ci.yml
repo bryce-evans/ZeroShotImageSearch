@@ -19,8 +19,8 @@ jobs:
         # https://anaconda.org/pytorch/pytorch
         # https://anaconda.org/pytorch/faiss-cpu
         # os: [ubuntu-latest, macos-latest, windows-latest]
-        os: [ubuntu-latest, windows-latest]
-        python-version: ['3.11']
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.9', '3.10', '3.11']
 
     steps:
       - name: Checkout code
