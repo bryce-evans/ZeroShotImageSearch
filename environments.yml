@@ -4,13 +4,13 @@ channels:
   - conda-forge
   - pytorch
 dependencies:
-  - python=3.11
-  - faiss-cpu==1.8.0 
-  - numpy==1.26.4
-  - pillow==10.3.0
-  - pytest==7.4.0
-  - pytest-mock==3.10.0
-  - pytorch-cpu==2.3.0
-  - torchvision-cpu==0.18.0
-  - transformers==4.37.2
-  - setuptools==68.2.2
+  - python
+  - faiss-cpu
+  - numpy
+  - pillow
+  - pytest
+  - pytest-mock
+  - pytorch
+  - torchvision
+  - transformers
+  - setuptools
