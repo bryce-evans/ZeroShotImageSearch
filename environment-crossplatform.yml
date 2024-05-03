@@ -1,0 +1,16 @@
+# Uses older versions, with included support for Windows
+name: ci-crossplatform-env
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.11
+  - faiss-cpu==1.7.4
+  - numpy==1.26.4
+  - pillow==10.3.0
+  - pytest==7.4.0
+  - pytest-mock==3.10.0
+  - pytorch==2.2.0
+  - torchvision==0.15.2
+  - transformers==4.37.2
