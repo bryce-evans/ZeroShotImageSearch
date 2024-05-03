@@ -39,5 +39,7 @@ jobs:
 
       - name: Run Tests
         run: |
+          conda info
+          conda list
           pytest test
 
