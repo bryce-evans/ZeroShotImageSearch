@@ -11,7 +11,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        # Remove MacOS because conda only has up to date packages
+        # for MacOS Arm chips, and  github only supports intel.
+        # MacOS with M2 processor tested locally.
+        # os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
         python-version: ['3.11']
 
     steps:
