@@ -29,12 +29,14 @@ jobs:
       - name: Environment Setup
         uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: ci_env
           environment-file: environments.yml
+          activate-environment: ci_env
           python-version: 3.11
           miniconda-version: "latest"
+          auto-activate-base: false
 
       - name: Install dependencies
+        shell: bash -l {0}
         run: conda env update --file environments.yml --name ci_env
 
       - name: Run Tests
